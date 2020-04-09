@@ -2,16 +2,17 @@ const express = require("express");
 const router = express.Router();
 var db = require('../db-config/db');
 
-router.get("/test", (req, res) => {
+router.get("/getAllUser", (req, res) => {
   var sql = 'select * from usertbl';
-  db.getData(sql).then(response =>{
-    var data = []
+  db.execute(sql).then(response => {
+    var array = []
     response.forEach(result => {
-      data.push({
+      array.push({
         Name: result.username,
         SecurityCode: result.password
       })
-  });
+    });
+    var data = JSON.stringify({ "result": array })
     res.send(data).status(200);
   })
 });
