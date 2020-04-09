@@ -1,13 +1,14 @@
-function getData(sql) {
+var mysql = require('mysql');
+const con = {
+    host: '127.0.0.1',
+    user: 'root',
+    password: 'admin',
+    database: 'testdb'
+}
+function execute(sql) {
 
     var promise = new Promise(function (resolve, reject) {
-        var mysql = require('mysql');
-        var connection = mysql.createConnection({
-            host: '127.0.0.1',
-            user: 'root',
-            password: 'admin',
-            database: 'testdb'
-        });
+        var connection = mysql.createConnection(con);
         connection.connect()
         connection.query(sql, function (error, results, fields) {
             if (error) {
@@ -20,6 +21,6 @@ function getData(sql) {
     })
     return promise
 }
-module.exports.getData = getData;
+module.exports.execute = execute;
 
 
