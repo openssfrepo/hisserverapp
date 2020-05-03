@@ -2,8 +2,8 @@ var mysql = require('mysql');
 const con = {
     host: '127.0.0.1',
     user: 'root',
-    password: 'admin',
-    database: 'testdb'
+    password: 'password',
+    database: 'hisdb'
 }
 function execute(sql) {
 
