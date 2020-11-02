@@ -7,4 +7,4 @@
     -> npm install  
     -> npm start  
     
-    https://app.infinityfree.net/accounts/epiz_27103214
+    https://cpanel.epizy.com/
