@@ -1,9 +1,9 @@
 var mysql = require('mysql');
 const con = {
-    host: '127.0.0.1',
-    user: 'root',
-    password: 'password',
-    database: 'hisdb'
+    host: 'freedb.tech',
+    user: 'freedbtech_his_user',
+    password: 'his_user',
+    database: 'freedbtech_openssf_hisdb'
 }
 function execute(sql) {
 

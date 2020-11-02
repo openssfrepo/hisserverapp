@@ -1,22 +1,15 @@
-const express = require("express");
-const router = express.Router();
-var db = require("../db-config/db");
+module.exports = app => {
+  // Add Controller path here
+  const sample_controller = require('../controllers/sample');
 
-router.get("/getAllUser", (req, res) => {
-  var sql = "select * from usertbl";
-  db.execute(sql).then((response) => {
-    var array = [];
-    var i = 0;
-    response.forEach((result) => {
-      array.push({
-        id: i,
-        Name: result.username,
-        SecurityCode: result.password,
-      });
-      i++;
-    });
-    res.send(array).status(200);
-  });
-});
 
-module.exports = router;
+  // Add Api List here
+  app.get("/sample", sample_controller.findAll);
+  app.get("/sample/:sampleId", sample_controller.findOneById);
+
+  // Add api from here
+
+}
+
+
+
