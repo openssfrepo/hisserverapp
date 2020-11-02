@@ -6,3 +6,5 @@
 3. go to the hisserverapp folder and run this command  
     -> npm install  
     -> npm start  
+    
+    https://app.infinityfree.net/accounts/epiz_27103214
