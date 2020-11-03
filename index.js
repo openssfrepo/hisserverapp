@@ -8,10 +8,8 @@ const app = express();
 app.use(express.static("src/public"));
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-
 const api_routes = require("./src/routes/api");
 api_routes(app);
-
 const server = http.createServer(app);
 
 const io = socketIo(server); // < Interesting!
