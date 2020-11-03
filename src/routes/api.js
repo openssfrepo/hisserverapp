@@ -15,7 +15,7 @@ module.exports = app => {
   app.get("/user", sequelize_controller.findAllUser);
 
   // get data with authentication
-  app.get("/authLogin", login_controller.getUserInfo);
+  app.post("/authLogin", login_controller.getUserInfo);
   app.get("/authTest",JWT.authenticateJWT,login_controller.getAuthTest)
 
 
