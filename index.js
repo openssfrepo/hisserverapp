@@ -79,7 +79,6 @@ const io = socketIo(server); // < Interesting!
 io.on("connection", socket => {
     console.log("a user connected :D");
     socket.on("chat message", msg => {
-      msg= "server "+msg;
       console.log(msg);
       io.emit("chat message", msg);
     });

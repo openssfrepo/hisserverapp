@@ -4,6 +4,7 @@ module.exports = app => {
   const sample_controller = require('../controllers/sample');
   const sequelize_controller = require('../controllers/sequelizeSample');
   const login_controller = require('../controllers/loginController');
+  const prayer_controller = require('../controllers/prayertimeController');
 
 
   // Add Api List here ***** custom query api example ******
@@ -17,6 +18,10 @@ module.exports = app => {
   // get data with authentication
   app.post("/authLogin", login_controller.getUserInfo);
   app.get("/authTest",JWT.authenticateJWT,login_controller.getAuthTest)
+  
+  app.post("/prayerCreate", prayer_controller.create);
+  app.post("/prayerSelectAll", prayer_controller.selectAll);
+  app.post("/prayerSelectOne", prayer_controller.selectOne);
 
 
 
