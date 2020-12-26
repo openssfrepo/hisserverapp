@@ -14,6 +14,8 @@ exports.create = function (req, res) {
     dhuhrIqamah: `${req.body.dhuhrIqamah}`,
     asrAzan: `${req.body.asrAzan}`,
     asrIqamah: `${req.body.asrIqamah}`,
+    iftarStart: `${req.body.iftarStart}`,
+    iftarFinish: `${req.body.iftarFinish}`,
     magribAzan: `${req.body.magribAzan}`,
     magribIqamah: `${req.body.magribIqamah}`,
     ishaAzan: `${req.body.ishaAzan}`,

@@ -2,9 +2,9 @@ const Sequelize = require("sequelize");
 const db = require("../../db-config/sequelize-conn");
 const options = {
     timestamps: false,
-    tableName: "t1000e_user",
+    tableName: "t1000",
   };
-const T1000Entity= db.define('t1000e_user',{
+const T1000Entity= db.define('t1000',{
     userId:{
         field:'user_id',
         type: Sequelize.STRING,

@@ -50,6 +50,14 @@ const T3000Entity= db.define('t3000',{
         field:'asr_iqamah',
         type: Sequelize.STRING
     },
+    iftarStart:{
+        field:'iftar_start',
+        type: Sequelize.STRING
+    },
+    iftarFinish:{
+        field:'iftar_finish',
+        type: Sequelize.STRING
+    },
     magribAzan:{
         field:'magrib_azan',
         type: Sequelize.STRING
