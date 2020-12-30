@@ -7,4 +7,4 @@
     -> npm install  
     -> npm start  
     
-    https://cpanel.epizy.com/
+4. test url: http://localhost:4001/user
