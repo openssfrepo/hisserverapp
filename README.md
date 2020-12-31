@@ -7,4 +7,4 @@
     -> npm install  
     -> npm start  
     
-4. test url: http://localhost:4001/user
+4. test url: http://localhost:4001/user or https://hisserverapp.herokuapp.com/user
