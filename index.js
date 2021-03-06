@@ -26,55 +26,6 @@ const users = [
     role: 'member'
   }
 ];
-app.post('/login', (req, res) => {
-  // Read username and password from request body
-  const { username, password } = req.body;
-  // Filter user from the users array by username and password
-  const user = users.find(u => { return u.username === username && u.password === password });
-  if (user) {
-    // Generate an access token
-    const accessToken = jwt.sign({ username: user.username, role: user.role }, accessTokenSecret);
-    res.json({
-      accessToken
-    });
-  } else {
-    res.send('Username or password incorrect');
-  }
-});
-const books = [
-  {
-    "author": "Chinua Achebe",
-    "country": "Nigeria",
-    "language": "English",
-    "pages": 209,
-    "title": "Things Fall Apart",
-    "year": 1958
-  }
-];
-const authenticateJWT = (req, res, next) => {
-  const authHeader = req.headers.authorization;
-
-  if (authHeader) {
-    const token = authHeader.split(' ')[1];
-
-    jwt.verify(token, accessTokenSecret, (err, user) => {
-      if (err) {
-        return res.sendStatus(403);
-      }
-
-      req.user = user;
-      next();
-    });
-  } else {
-    res.sendStatus(401);
-  }
-};
-app.get('/getTestData', authenticateJWT, (req, res) => {
-  res.json(books);
-});
-
-
-
 const server = http.createServer(app);
 // const server = https.createServer({
 //   key: fs.readFileSync(path.join(__dirname, './src/cert', 'key.pem')),
