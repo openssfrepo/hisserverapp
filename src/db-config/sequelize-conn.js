@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-module.exports = new Sequelize('freedbtech_openssf_hisdb', 'freedbtech_his_user', 'his_user', {
-    host: 'freedb.tech',
+module.exports = new Sequelize('hisdb', 'root', 'root', {
+    host: 'localhost',
     dialect: 'mysql'
   });

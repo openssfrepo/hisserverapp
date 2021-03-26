@@ -1,10 +1,10 @@
 const Sequelize = require("sequelize");
 const db = require("../../db-config/sequelize-conn");
 const options = {
-    timestamps: false,
-    tableName: "t3000",
+    timestamps: true,
+    tableName: "t5000",
   };
-const T3000Entity= db.define('t3000',{
+const T5000Entity= db.define('t5000',{
     prayerId:{
         field:'prayer_id',
         type: Sequelize.STRING,
@@ -50,6 +50,10 @@ const T3000Entity= db.define('t3000',{
         field:'asr_iqamah',
         type: Sequelize.STRING
     },
+    sunset:{
+        field:'sunset',
+        type: Sequelize.STRING
+    },
     iftarStart:{
         field:'iftar_start',
         type: Sequelize.STRING
@@ -82,41 +86,33 @@ const T3000Entity= db.define('t3000',{
         field:'jummah_azan',
         type: Sequelize.STRING
     },
-    jummahKhuthbhaFirst:{
-        field:'jummah_khuthba_first',
+    jummahKhuthbha:{
+        field:'jummah_khuthba',
         type: Sequelize.STRING
     },
-    jummahIqamahFirst:{
-        field:'jummah_iqamah_first',
-        type: Sequelize.STRING
-    },
-    jummahKhuthbhaSecond:{
-        field:'jummah_khuthba_second',
-        type: Sequelize.STRING
-    },
-    jummahIqamahSecond:{
-        field:'jummah_iqamah_second',
-        type: Sequelize.STRING
-    },
-    sunset:{
-        field:'sunset',
+    jummahIqamah:{
+        field:'jummah_iqamah',
         type: Sequelize.STRING
     },
     updatedBy:{
         field:'updated_by',
         type: Sequelize.STRING
     },
-    updatedAt:{
-        field:'updated_at',
-        type: Sequelize.STRING
-    },
     createdBy:{
         field:'created_by',
         type: Sequelize.STRING
     },
-    createdAt:{
-        field:'created_at',
-        type: Sequelize.STRING
+    createdAt: {
+        field: 'created_at',
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
+    },
+    updatedAt: {
+        field: 'updated_at',
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
     },
     timestamp:{
         field:'timestamp',
@@ -126,4 +122,4 @@ const T3000Entity= db.define('t3000',{
     }
 },options);
 
-module.exports = T3000Entity;
+module.exports = T5000Entity;

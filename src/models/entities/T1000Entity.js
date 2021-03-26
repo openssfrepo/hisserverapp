@@ -1,6 +1,8 @@
 const Sequelize = require("sequelize");
 const db = require("../../db-config/sequelize-conn");
 const options = {
+    created_at: true,
+    updated_at: true,
     timestamps: false,
     tableName: "t1000",
 };
@@ -12,34 +14,35 @@ const T1000Entity = db.define('t1000', {
     },
     userName: {
         field: 'user_name',
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        unique: true 
     },
     userPass: {
-        field: 'user_pass',
+        field: 'password',
+        type: Sequelize.STRING
+    },
+    userStatus: {
+        field: 'user_status',
         type: Sequelize.STRING
     },
     userType: {
         field: 'user_type',
         type: Sequelize.STRING
     },
-    profileId: {
-        field: 'profile_id',
+    name: {
+        field: 'name',
         type: Sequelize.STRING
     },
-    serviceId: {
-        field: 'service_id',
+    email: {
+        field: 'email',
         type: Sequelize.STRING
     },
-    addressId: {
-        field: 'address_id',
+    phoneNo: {
+        field: 'phone_no',
         type: Sequelize.STRING
     },
     permissionId: {
         field: 'permission_id',
-        type: Sequelize.STRING
-    },
-    activeFlg: {
-        field: 'active_flg',
         type: Sequelize.STRING
     },
     updatedBy: {
