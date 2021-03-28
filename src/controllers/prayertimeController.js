@@ -5,7 +5,7 @@ const _bind = require("../binding/T5000bind");
 exports.create = function (req, res) {
   T5000Entity.findAll({
     where: {
-      prayerDate: `${req.body.prayerdate}`,
+      prayerDate: `${req.body.prayerDate}`,
     },
   })
     .then((response) => {
@@ -76,22 +76,20 @@ exports.delete = function (req, res) {
 };
 
 exports.update = function (req, res) {
-  T1000Entity.findAll({
+  T5000Entity.findAll({
     where: {
-      userName: `${req.body.prayerdate}`,
+      prayerId: `${req.body.prayerId}`,
     },
-  }).then((user) => {
-    if (user.length > 0) {
-      var obj = _bind._bindupdate(req.body);
-      if (Object.keys(obj).length > 0) {
-        T1000Entity.update(obj, {
+  }).then((response) => {
+    if (response.length > 0) {
+      if (Object.keys(req.body).length > 0) {
+        T5000Entity.update(req.body, {
           where: {
-            userName: `${req.body.username}`,
-            password: encryptpass,
+            prayerId: `${req.body.prayerId}`,
           },
         })
-          .then((user) => {
-            res.send({ data: user, result: true }).status(200);
+          .then((response) => {
+            res.send({ data: response, result: true }).status(200);
           })
           .catch((err) => {
             throw err;

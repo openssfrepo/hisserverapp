@@ -26,8 +26,9 @@ module.exports = app => {
   app.post("/authLogin", login_controller.getUserInfo);
   app.get("/authTest",JWT.authenticateJWT,login_controller.getAuthTest)
   
-  app.post("/prayerCreate", prayer_controller.create);
+  app.post("/prayercreate", prayer_controller.create);
   app.get("/prayertimeall", prayer_controller.selectAll);
   app.post("/prayertimeone", prayer_controller.selectOne);
+  app.post("/prayerupdate", prayer_controller.update);
   app.get("/getuuid", sample_controller.getUUID)
 }

@@ -113,13 +113,13 @@ const T5000Entity= db.define('t5000',{
         type: 'TIMESTAMP',
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
         allowNull: false
-    },
-    timestamp:{
-        field:'timestamp',
-        type: 'TIMESTAMP',
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
-        allowNull: false
     }
+    // timestamp:{
+    //     field:'timestamp',
+    //     type: 'TIMESTAMP',
+    //     defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+    //     allowNull: false
+    // }
 },options);
 
 module.exports = T5000Entity;
