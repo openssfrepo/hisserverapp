@@ -53,7 +53,11 @@ exports.selectOne = function (req, res) {
     },
   })
     .then((response) => {
-      res.send({ data: response, result: true }).status(200);
+      if(response.length>0){
+        res.send({ data: response, result: true }).status(200);
+      }else{
+        res.send({ msg: "data not found", result: false }).status(200);
+      }
     })
     .catch((err) => {
       console.log(err);
@@ -79,6 +83,7 @@ exports.update = function (req, res) {
   T5000Entity.findAll({
     where: {
       prayerId: `${req.body.prayerId}`,
+      prayerDate: `${req.body.prayerDate}`,
     },
   }).then((response) => {
     if (response.length > 0) {
@@ -97,8 +102,10 @@ exports.update = function (req, res) {
       } else {
         res.send({ result: false, msg: "no item for update" }).status(200);
       }
-    }else{
-      res.send({ result: false, msg: "user not found." }).status(200);
+    } else {
+      res.send({ result: false, msg: "data not found. created instead" }).status(200);
     }
+  }).catch((err)=>{
+    throw err
   });
 };
