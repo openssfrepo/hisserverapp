@@ -15,17 +15,6 @@ app.use(bodyParser.json())
 const api_routes = require("./src/routes/api");
 api_routes(app);
 const accessTokenSecret = 'hisappAuthAccessTocken';
-const users = [
-  {
-    username: 'john',
-    password: 'password123admin',
-    role: 'admin'
-  }, {
-    username: 'anna',
-    password: 'password123member',
-    role: 'member'
-  }
-];
 const server = http.createServer(app);
 // const server = https.createServer({
 //   key: fs.readFileSync(path.join(__dirname, './src/cert', 'key.pem')),

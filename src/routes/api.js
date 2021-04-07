@@ -14,14 +14,21 @@ module.exports = app => {
   // Add api from here ***** sequelize api example ****** without Authentication 
   app.get("/test", sequelize_controller.findAllTest);
   app.get("/user", sequelize_controller.findAllUser);
-  app.get("/createuser", user_controller.createUser);
+  
+  //******************Application api start from here ********** */
+  app.post("/createuser", user_controller.createUser);
+  app.get("/getalluser", user_controller.findAllUser);
+  app.get("/getuser", user_controller.findUser);
+  app.post("/updateuser", user_controller.updateUser);
+  app.get("/deleteuser", user_controller.deleteUser);
 
   // get data with authentication
   app.post("/authLogin", login_controller.getUserInfo);
   app.get("/authTest",JWT.authenticateJWT,login_controller.getAuthTest)
   
-  app.post("/prayerCreate", prayer_controller.create);
-  app.post("/prayerSelectAll", prayer_controller.selectAll);
-  app.post("/prayerSelectOne", prayer_controller.selectOne);
-
+  app.post("/prayercreate", prayer_controller.create);
+  app.get("/prayertimeall", prayer_controller.selectAll);
+  app.post("/prayertimeone", prayer_controller.selectOne);
+  app.post("/prayerupdate", prayer_controller.update);
+  app.get("/getuuid", sample_controller.getUUID)
 }
